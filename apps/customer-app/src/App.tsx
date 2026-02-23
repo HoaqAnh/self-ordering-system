@@ -15,16 +15,13 @@ const fetchMenu = async (): Promise<MenuItem[]> => {
 
 const App = () => {
    // 1. Lấy dữ liệu từ API bằng React Query (Server State)
-   const {
-      data: menuItems,
-      isLoading,
-      isError,
-   } = useQuery({ queryKey: ['menu'], queryFn: fetchMenu });
+   const { data: menuItems, isLoading, isError } = useQuery({ queryKey: ['menu'], queryFn: fetchMenu });
 
    // 2. Lấy dữ liệu và actions từ Zustand (Client State)
    const cartItems = useCartStore((state) => state.items);
    const totalPrice = useCartStore((state) => state.totalPrice);
    const addItem = useCartStore((state) => state.addItem);
+   const removeItem = useCartStore((state) => state.removeItem);
 
    if (isLoading) return <div className="p-10 text-center">Đang tải thực đơn...</div>;
    if (isError) return <div className="p-10 text-center text-red-500">Lỗi tải dữ liệu!</div>;
@@ -35,17 +32,19 @@ const App = () => {
             <h1 className="text-2xl font-bold mb-4">Thực đơn</h1>
             <div className="flex flex-col gap-4">
                {menuItems?.map((item) => (
-                  <div
-                     key={item.id}
-                     className="p-4 border rounded-lg flex justify-between items-center shadow-sm"
-                  >
+                  <div key={item.id} className="p-4 border rounded-lg flex justify-between items-center shadow-sm">
                      <div>
                         <h3 className="font-semibold">{item.name}</h3>
                         <p className="text-gray-600">{item.price.toLocaleString('vi-VN')} đ</p>
                      </div>
-                     <Button onClick={() => addItem(item)} variant="primary">
-                        Thêm
-                     </Button>
+                     <div className="flex gap-1">
+                        <Button onClick={() => addItem(item)} variant="primary" size="sm">
+                           +
+                        </Button>
+                        <Button onClick={() => removeItem(item.id)} variant="danger" size="sm">
+                           -
+                        </Button>
+                     </div>
                   </div>
                ))}
             </div>

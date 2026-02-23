@@ -25,9 +25,7 @@ export const useCartStore = create<CartState>((set) => ({
 
          let newItems = [];
          if (existingItem) {
-            newItems = state.items.map((i) =>
-               i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-            );
+            newItems = state.items.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i));
          } else {
             newItems = [...state.items, { ...item, quantity: 1 }];
          }
