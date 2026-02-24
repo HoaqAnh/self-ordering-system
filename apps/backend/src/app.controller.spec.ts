@@ -15,8 +15,10 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return menu array', () => {
+      const menu = appController.getMenu();
+      expect(Array.isArray(menu)).toBe(true);
+      expect(menu.length).toBeGreaterThan(0);
     });
   });
 });
