@@ -1,0 +1,29 @@
+{
+   "buttons": {
+      "add": "Thêm",
+      "save": "Lưu",
+      "cancel": "Hủy"
+   },
+   "arithmetic": {
+      "add": "Cộng",
+      "subtraction": "Trừ",
+      "multi": "Nhân",
+      "division": "Chia",
+      "equal": "Bằng",
+      "notEqual_1": "Không bằng",
+      "notEqual_2": "Khác",
+      "bigger": "Lớn hơn",
+      "smaller": "Bé hơn",
+      "total": "Tổng"
+   },
+   "system": {
+      "menuLoading": "Đang tải thực đơn...",
+      "dataError": "Lỗi tải dữ liệu!",
+      "saving": "Đang lưu...",
+      "changeLanguage": "Thay đổi ngôn ngữ"
+   },
+   "language": {
+      "vi": "Tiếng Việt",
+      "en": "Tiếng Anh"
+   }
+}
