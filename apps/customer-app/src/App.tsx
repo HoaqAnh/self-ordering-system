@@ -1,17 +1,13 @@
-import { useQuery } from '@tanstack/react-query';
 import { type MenuItem } from '@self-ordering/types';
+
+import { useQuery } from '@tanstack/react-query';
 import { Button } from '@self-ordering/ui';
 import { useCartStore } from '@/features/cart/hooks/useCartStore';
 import { useTranslation } from 'react-i18next';
+import { apiClient } from '@/lib/apiClient';
 
-// Giả lập một hàm gọi API (Sau này sẽ thay bằng fetch/axios gọi NestJS)
 const fetchMenu = async (): Promise<MenuItem[]> => {
-   await new Promise((resolve) => setTimeout(resolve, 1000));
-   return [
-      { id: '1', name: 'Phở Bò', price: 45000 },
-      { id: '2', name: 'Bánh Mì Thịt Nướng', price: 25000 },
-      { id: '3', name: 'Trà Đá', price: 5000 },
-   ];
+   return apiClient.get('/menu');
 };
 
 const App = () => {
