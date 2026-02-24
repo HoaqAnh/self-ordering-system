@@ -1,0 +1,11 @@
+{
+   "menu": {
+      "title": "Customer Menu",
+      "dish": "Dish"
+   },
+   "cart": {
+      "title": "Shopping Cart",
+      "empty": "No items in cart yet.",
+      "total": "Total"
+   }
+}

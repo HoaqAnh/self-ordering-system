@@ -1,0 +1,10 @@
+{
+   "menu": {
+      "title": "Thực đơn Khách hàng",
+      "dish": "Món ăn"
+   },
+   "cart": {
+      "title": "Giỏ hàng",
+      "empty": "Chưa có món nào trong giỏ."
+   }
+}

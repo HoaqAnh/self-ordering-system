@@ -1,0 +1,29 @@
+{
+   "buttons": {
+      "add": "Add",
+      "save": "Save",
+      "cancel": "Cancel"
+   },
+   "arithmetic": {
+      "add": "Add",
+      "subtraction": "Subtraction",
+      "multi": "Multiply",
+      "division": "Divide",
+      "equal": "Equal",
+      "notEqual_1": "Not Equal",
+      "notEqual_2": "Different",
+      "bigger": "Greater Than",
+      "smaller": "Less Than",
+      "total": "Total"
+   },
+   "system": {
+      "menuLoading": "Loading menu...",
+      "dataError": "Error loading data!",
+      "saving": "Saving...",
+      "changeLanguage": "Change language"
+   },
+   "language": {
+      "vi": "Vietnamese",
+      "en": "English"
+   }
+}
