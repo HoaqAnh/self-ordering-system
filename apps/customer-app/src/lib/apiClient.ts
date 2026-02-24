@@ -10,6 +10,6 @@ export const apiClient = createApiClient({
       console.warn('Phiên đăng nhập hết hạn!');
       localStorage.removeItem('customer_access_token');
       useCartStore.getState().clearCart();
-      window.location.href = '/login';
+      // window.location.href = '/login';
    },
 });
