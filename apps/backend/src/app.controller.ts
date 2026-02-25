@@ -1,14 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
-import { MenuItem } from '@self-ordering/types';
+import { Controller, Get, Post, Body } from '@nestjs/common';
+import { AppService } from './app.service';
+import { CreateMenuItemDto } from './dto/create-menu-item.dto';
 
 @Controller('menu')
 export class AppController {
+  constructor(private readonly appService: AppService) {}
+
   @Get()
-  getMenu(): MenuItem[] {
-    return [
-      { id: '1', name: 'Phở Bò Kobe', price: 95000 },
-      { id: '2', name: 'Cà phê Sữa đá', price: 29000 },
-      { id: '3', name: 'Bánh mì Pate', price: 25000 },
-    ];
+  async getMenu() {
+    return await this.appService.getMenu();
+  }
+
+  @Post()
+  async createMenuItem(@Body() createMenuItemDto: CreateMenuItemDto) {
+    return await this.appService.createMenuItem(createMenuItemDto);
   }
 }
