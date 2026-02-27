@@ -6,12 +6,7 @@ export async function createApp() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: [
-      'https://www.selforder.site',
-      'https://selforder.site',
-      'https://self-ordering-customer.vercel.app',
-      'https://self-ordering-admin.vercel.app',
-    ],
+    origin: ['https://app.selforder.site', 'https://admin.selforder.site'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
