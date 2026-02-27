@@ -20,7 +20,13 @@
       "menuLoading": "Loading menu...",
       "dataError": "Error loading data!",
       "saving": "Saving...",
-      "changeLanguage": "Change language"
+      "changeLanguage": "Change language",
+      "theme": {
+         "title": "Theme",
+         "light": "Light",
+         "dark": "Dark",
+         "auto": "Auto"
+      }
    },
    "language": {
       "vi": "Vietnamese",

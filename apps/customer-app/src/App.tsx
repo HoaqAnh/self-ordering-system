@@ -5,6 +5,7 @@ import { Button } from '@self-ordering/ui';
 import { useCartStore } from '@/features/cart/hooks/useCartStore';
 import { useTranslation } from 'react-i18next';
 import { apiClient } from '@/lib/apiClient';
+import { ThemeToggleSwitch } from '@self-ordering/ui';
 
 const fetchMenu = async (): Promise<MenuItem[]> => {
    return apiClient.get('/menu');
@@ -18,10 +19,7 @@ const App = () => {
       i18n.changeLanguage(newLang);
    };
 
-   // 1. Lấy dữ liệu từ API bằng React Query (Server State)
    const { data: menuItems, isLoading, isError } = useQuery({ queryKey: ['menu'], queryFn: fetchMenu });
-
-   // 2. Lấy dữ liệu và actions từ Zustand (Client State)
    const cartItems = useCartStore((state) => state.items);
    const totalPrice = useCartStore((state) => state.totalPrice);
    const addItem = useCartStore((state) => state.addItem);
@@ -34,12 +32,6 @@ const App = () => {
       <div className="max-w-4xl mx-auto p-6 grid grid-cols-2 gap-8">
          <div>
             <h1 className="text-2xl font-bold mb-4">{t('menu.title')}</h1>
-            <div className="flex justify-between my-2">
-               <p>{t('common:system.changeLanguage')}</p>
-               <Button size="sm" variant="secondary" onClick={toggleLanguage}>
-                  {t(`common:language.${i18n.language}`)}
-               </Button>
-            </div>
             <div className="flex flex-col gap-4">
                {menuItems?.map((item) => (
                   <div key={item.id} className="p-4 border rounded-lg flex justify-between items-center shadow-sm">
@@ -57,6 +49,18 @@ const App = () => {
                      </div>
                   </div>
                ))}
+               <div className="flex justify-between">
+                  <h4>{t(`common:system.theme.title`)}</h4>
+                  <div className="flex gap-1">
+                     <ThemeToggleSwitch />
+                  </div>
+               </div>
+               <div className="flex justify-between">
+                  <p>{t('common:system.changeLanguage')}</p>
+                  <Button size="sm" variant="secondary" onClick={toggleLanguage}>
+                     {t(`common:language.${i18n.language}`)}
+                  </Button>
+               </div>
             </div>
          </div>
 
