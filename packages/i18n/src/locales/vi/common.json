@@ -20,7 +20,13 @@
       "menuLoading": "Đang tải thực đơn...",
       "dataError": "Lỗi tải dữ liệu!",
       "saving": "Đang lưu...",
-      "changeLanguage": "Thay đổi ngôn ngữ"
+      "changeLanguage": "Thay đổi ngôn ngữ",
+      "theme": {
+         "title": "Giao diện",
+         "light": "Sáng",
+         "dark": "Tối",
+         "auto": "Tự động"
+      }
    },
    "language": {
       "vi": "Tiếng Việt",
