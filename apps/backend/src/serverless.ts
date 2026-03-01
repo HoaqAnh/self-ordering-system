@@ -12,7 +12,7 @@ export async function createApp() {
   });
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('v1');
 
   await app.init();
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
