@@ -2,5 +2,12 @@
    "dashboard": {
       "title": "Revenue Overview",
       "total_orders": "Total Orders"
+   },
+   "menu": {
+      "add": "Add dishes",
+      "delete": "Delete dish",
+      "remove": "Remove the dish",
+      "inactive": "This dish is no longer served",
+      "active": "Dishes are still being served"
    }
 }

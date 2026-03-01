@@ -1,8 +1,18 @@
 {
    "buttons": {
       "add": "Add",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "remove": "Remove",
       "save": "Save",
-      "cancel": "Cancel"
+      "confirm": "Confirm"
+   },
+   "actions": {
+      "pay": "Pay",
+      "transfer": "Transfer",
+      "payCash": "Cash",
+      "serviceReviews": "Service reviews",
+      "tips": "Tips"
    },
    "arithmetic": {
       "add": "Add",
@@ -17,7 +27,7 @@
       "total": "Total"
    },
    "system": {
-      "menuLoading": "Loading menu...",
+      "loadingMenu": "Loading menu...",
       "dataError": "Error loading data!",
       "saving": "Saving...",
       "changeLanguage": "Change language",

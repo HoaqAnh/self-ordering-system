@@ -1,5 +1,5 @@
-import { useThemeStore } from './useThemeStore';
-import { Switch } from '../Switch';
+import { useThemeStore } from '../theme/hook/useThemeStore';
+import { Switch } from '../common/Switch';
 
 export function ThemeSwitch() {
    const { theme, setTheme } = useThemeStore();

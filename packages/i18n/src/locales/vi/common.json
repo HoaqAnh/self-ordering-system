@@ -1,8 +1,18 @@
 {
    "buttons": {
       "add": "Thêm",
+      "cancel": "Hủy",
+      "delete": "Xóa",
+      "remove": "Gỡ",
       "save": "Lưu",
-      "cancel": "Hủy"
+      "confirm": "Xác nhận"
+   },
+   "actions": {
+      "pay": "Thanh toán",
+      "transfer": "Chuyển khoản",
+      "payCash": "Trả tiền mặt",
+      "serviceReviews": "Đánh giá dịch vụ",
+      "tips": "Tiền thưởng"
    },
    "arithmetic": {
       "add": "Cộng",
@@ -17,7 +27,7 @@
       "total": "Tổng"
    },
    "system": {
-      "menuLoading": "Đang tải thực đơn...",
+      "loadingMenu": "Đang tải thực đơn...",
       "dataError": "Lỗi tải dữ liệu!",
       "saving": "Đang lưu...",
       "changeLanguage": "Thay đổi ngôn ngữ",
