@@ -1,0 +1,100 @@
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #202124;
+
+    --surface: #ffffff;
+    --surface-foreground: #202124;
+
+    --primary: #1a73e8; 
+    --primary-foreground: #ffffff;
+
+    --secondary: #bbbbbb;
+    --secondary-foreground: #202124;
+
+    --muted: #f1f3f4;
+    --muted-foreground: #5f6368;
+
+    --error: #ea4335;
+    --error-foreground: #ffffff;
+
+    --border: #dadce0;
+    
+    --radius: 0.5rem;
+
+    --shadow-elevation-1: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    --shadow-elevation-2: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+    --shadow-elevation-3: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  }
+
+  .dark {
+    --background: #202124;
+    --foreground: #e8eaed;
+
+    --surface: #292a2d;
+    --surface-foreground: #e8eaed;
+
+    --primary: #8ab4f8;
+    --primary-foreground: #202124;
+
+    --secondary: #666666;
+    --secondary-foreground: #e8eaed;
+
+    --muted: #3c4043;
+    --muted-foreground: #9aa0a6;
+
+    --error: #f28b82;
+    --error-foreground: #202124;
+
+    --border: #3c4043;
+
+    --shadow-elevation-1: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --shadow-elevation-2: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --shadow-elevation-3: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 4px 8px 3px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+
+  --color-border: var(--border);
+
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 0.25rem);
+  --radius-full: 9999px;
+
+  --shadow-sm: var(--shadow-elevation-1);
+  --shadow-md: var(--shadow-elevation-2);
+  --shadow-lg: var(--shadow-elevation-3);
+
+  --font-sans: "Roboto", "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

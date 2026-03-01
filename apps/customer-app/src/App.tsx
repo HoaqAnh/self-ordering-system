@@ -5,7 +5,7 @@ import { Button } from '@self-ordering/ui';
 import { useCartStore } from '@/features/cart/hooks/useCartStore';
 import { useTranslation } from 'react-i18next';
 import { apiClient } from '@/lib/apiClient';
-import { ThemeToggleSwitch } from '@self-ordering/ui';
+import { ThemeSwitch } from '@self-ordering/ui';
 
 const fetchMenu = async (): Promise<MenuItem[]> => {
    return apiClient.get('/menu');
@@ -26,7 +26,7 @@ const App = () => {
    const removeItem = useCartStore((state) => state.removeItem);
 
    if (isLoading) return <div className="p-10 text-center">{t('common:system.menuLoading')}</div>;
-   if (isError) return <div className="p-10 text-center text-red-500">{t('common:system.dataError')}</div>;
+   if (isError) return <div className="p-10 text-center text-error">{t('common:system.dataError')}</div>;
 
    return (
       <div className="max-w-4xl mx-auto p-6 grid grid-cols-2 gap-8">
@@ -37,13 +37,13 @@ const App = () => {
                   <div key={item.id} className="p-4 border rounded-lg flex justify-between items-center shadow-sm">
                      <div>
                         <h3 className="font-semibold">{item.name}</h3>
-                        <p className="text-gray-600">{item.price.toLocaleString('vi-VN')} đ</p>
+                        <p className="text-secondary">{item.price.toLocaleString('vi-VN')} đ</p>
                      </div>
                      <div className="flex gap-1">
                         <Button onClick={() => addItem(item)} variant="primary" size="sm">
                            {t('common:buttons.add')}
                         </Button>
-                        <Button onClick={() => removeItem(item.id)} variant="danger" size="sm">
+                        <Button onClick={() => removeItem(item.id)} variant="text" size="sm">
                            {t('common:buttons.cancel')}
                         </Button>
                      </div>
@@ -51,9 +51,7 @@ const App = () => {
                ))}
                <div className="flex justify-between">
                   <h4>{t(`common:system.theme.title`)}</h4>
-                  <div className="flex gap-1">
-                     <ThemeToggleSwitch />
-                  </div>
+                  <ThemeSwitch />
                </div>
                <div className="flex justify-between">
                   <p>{t('common:system.changeLanguage')}</p>
@@ -64,26 +62,26 @@ const App = () => {
             </div>
          </div>
 
-         <div className="bg-gray-50 p-6 rounded-lg border">
+         <div className="bg-background p-6 rounded-lg border shadow-sm">
             <h2 className="text-xl font-bold mb-4">
                {t('cart.title')} ({cartItems.length} {t('menu.dish')})
             </h2>
 
             {cartItems.length === 0 ? (
-               <p className="text-gray-500">{t('cart.empty')}.</p>
+               <p className="text-secondary">{t('cart.empty')}.</p>
             ) : (
                <div className="flex flex-col gap-3">
                   {cartItems.map((item) => (
-                     <div key={item.id} className="flex justify-between border-b pb-2">
+                     <div key={item.id} className="flex text-primary justify-between">
                         <span>
                            {item.quantity}x {item.name}
                         </span>
                         <span>{(item.price * item.quantity).toLocaleString('vi-VN')} đ</span>
                      </div>
                   ))}
-                  <div className="pt-4 mt-2 border-t border-gray-300 font-bold text-lg flex justify-between">
+                  <div className="pt-4 mt-2 border-t border-border font-bold text-lg flex justify-between">
                      <span>{t('common:arithmetic.total')}:</span>
-                     <span className="text-blue-600">{totalPrice.toLocaleString('vi-VN')} đ</span>
+                     <span className="text-primary">{totalPrice.toLocaleString('vi-VN')} đ</span>
                   </div>
                </div>
             )}
