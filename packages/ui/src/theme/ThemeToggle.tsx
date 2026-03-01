@@ -1,7 +1,7 @@
 import { useThemeStore } from './useThemeStore';
 import { Switch } from '../Switch';
 
-export function ThemeToggleSwitch() {
+export function ThemeSwitch() {
    const { theme, setTheme } = useThemeStore();
    const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
    const handleThemeChange = (checked: boolean) => {
@@ -14,7 +14,7 @@ export function ThemeToggleSwitch() {
             size="md"
             checked={isDark}
             onChange={handleThemeChange}
-            trackColorOn="bg-gray-800"
+            trackColorOn="bg-gray-600"
             trackColorOff="bg-sky-200"
             checkedIcon={
                <svg

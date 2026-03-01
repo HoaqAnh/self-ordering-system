@@ -19,8 +19,8 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
          disabled,
          checkedIcon,
          uncheckedIcon,
-         trackColorOn = 'bg-blue-600',
-         trackColorOff = 'bg-gray-200 dark:bg-gray-600',
+         trackColorOn = 'bg-primary',
+         trackColorOff = 'bg-secondary',
          ...props
       },
       ref

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-   variant?: 'primary' | 'secondary' | 'danger';
+   variant?: 'primary' | 'secondary' | 'danger' | 'text';
    cursor?: 'pointer' | 'not-allowed' | 'wait' | 'default';
    size?: 'sm' | 'md' | 'lg';
    isLoading?: boolean;
@@ -13,18 +13,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ref
    ) => {
       const baseStyle =
-         'rounded-md font-semibold transition-colors duration-200 inline-flex items-center justify-center';
+         'rounded-full font-medium transition-all duration-200 inline-flex items-center justify-center select-none';
 
       const variants = {
-         primary: 'bg-blue-600 text-white hover:bg-blue-700',
-         secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
-         danger: 'bg-red-600 text-white hover:bg-red-700',
+         primary: 'bg-primary text-primary-foreground hover:opacity-90 shadow-sm hover:shadow-md',
+         secondary: 'bg-transparent text-primary border border-border hover:bg-primary/10 hover:border-primary',
+         danger: 'bg-error text-error-foreground hover:opacity-90 shadow-sm hover:shadow-md',
+         text: 'bg-transparent text-primary hover:bg-primary/10',
       };
 
       const sizes = {
-         sm: 'px-3 py-1.5 text-sm',
-         md: 'px-4 py-2 text-base',
-         lg: 'px-6 py-3 text-lg',
+         sm: 'px-4 py-1.5 text-sm',
+         md: 'px-6 py-2 text-sm',
+         lg: 'px-8 py-2.5 text-base',
       };
 
       const cursors = {
@@ -36,16 +37,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
       let stateClass = cursors[cursor];
       if (isLoading) {
-         stateClass = 'opacity-70 cursor-wait';
+         stateClass = 'opacity-70 cursor-wait shadow-none hover:shadow-none';
       } else if (disabled) {
-         stateClass = 'opacity-50 cursor-not-allowed';
+         stateClass =
+            variant === 'text'
+               ? 'opacity-50 cursor-not-allowed bg-transparent text-muted-foreground'
+               : 'cursor-not-allowed shadow-none hover:shadow-none border-transparent bg-muted text-muted-foreground';
       }
 
       return (
          <button
             ref={ref}
             disabled={disabled || isLoading}
-            className={`${baseStyle} ${variants[variant]} ${sizes[size]} ${stateClass} ${className}`.trim()}
+            className={`${baseStyle} ${variants[variant]} ${sizes[size]} ${stateClass} ${className}`}
             {...props}
          >
             {isLoading && (
