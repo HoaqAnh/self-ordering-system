@@ -11,4 +11,16 @@ export default defineConfig({
          '@': path.resolve(__dirname, './src'),
       },
    },
+   server: {
+      port: 2222,
+      strictPort: true,
+      host: true,
+      allowedHosts: ['dev.selforder.site'],
+      proxy: {
+         '/v1': {
+            target: 'http://api.selforder.local:9898',
+            changeOrigin: true,
+         },
+      },
+   },
 });
