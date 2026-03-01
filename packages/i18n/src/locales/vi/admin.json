@@ -2,5 +2,12 @@
    "dashboard": {
       "title": "Tổng quan Doanh thu",
       "total_orders": "Tổng số đơn hàng"
+   },
+   "menu": {
+      "add": "Thêm món ăn",
+      "delete": "Xóa món ăn",
+      "remove": "Gỡ món ăn",
+      "inactive": "Món ăn không còn phục vụ",
+      "active": "Món ăn còn phục vụ"
    }
 }

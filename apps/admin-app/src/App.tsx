@@ -1,38 +1,36 @@
-import { Button } from '@self-ordering/ui';
 import { useState } from 'react';
+import { Button, Modal } from '@self-ordering/ui';
 import { useTranslation } from 'react-i18next';
 
 export default function App() {
-   const { i18n, t } = useTranslation();
-   const [loading, setLoading] = useState(false);
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const [isLoading, setIsLoading] = useState(false);
+   const { t } = useTranslation();
 
-   const toggleLanguage = () => {
-      const newLang = i18n.language === 'vi' ? 'en' : 'vi';
-      i18n.changeLanguage(newLang);
-   };
-
-   const handleSubmit = () => {
-      setLoading(true);
+   const handleDelete = () => {
+      setIsLoading(true);
       setTimeout(() => {
-         setLoading(false);
-         alert('Thành công!');
-      }, 2000);
+         setIsModalOpen(false);
+         setIsLoading(false);
+      }, 1000);
    };
+
    return (
-      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-         <h1 className="text-2xl font-bold">{t('dashboard.title')}</h1>
-         <div className="flex my-2 space-x-5">
-            <p>{t('common:system.changeLanguage')}</p>
-            <Button size="sm" variant="secondary" onClick={toggleLanguage}>
-               {t(`common:language.${i18n.language}`)}
-            </Button>
-         </div>
-         <Button size="md" variant="primary" isLoading={loading} onClick={handleSubmit}>
-            {loading ? t('common:system.saving') : t('common:buttons.save')}
-         </Button>
-         <Button size="sm" disabled variant="danger">
-            {t('dashboard.total_orders')}
-         </Button>
+      <div className="p-10">
+         <Button onClick={() => setIsModalOpen(true)}>Mở Modal Xóa</Button>
+         <Modal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            size="sm"
+            title={`${t('menu.inactive')}`}
+            confirmText={`${t('common:buttons.remove')}`}
+            cancelText={`${t('common:buttons.cancel')}`}
+            confirmVariant="danger"
+            onConfirm={handleDelete}
+            isConfirmLoading={isLoading}
+         >
+            Hành động này không thể hoàn tác. Dữ liệu của sản phẩm sẽ bị xóa vĩnh viễn khỏi hệ thống.
+         </Modal>
       </div>
    );
 }
