@@ -78,7 +78,6 @@ export default function App() {
             <h2 className="text-xl font-bold mb-4">
                {t('cart.title')} ({cartItems.length} {t('menu.dish')})
             </h2>
-
             {cartItems.length === 0 ? (
                <p className="text-secondary">{t('cart.empty')}.</p>
             ) : (
@@ -97,11 +96,12 @@ export default function App() {
                   </div>
                </div>
             )}
-
+            <Button size="sm" variant="primary" onClick={() => setIsPayModal(true)}>
+               Thanh toán
+            </Button>{' '}
             <Button size="sm" variant="primary" onClick={() => setIsPayModal(true)}>
                Thanh toán
             </Button>
-
             <Modal
                isOpen={isPayModal}
                onClose={() => setIsPayModal(false)}
